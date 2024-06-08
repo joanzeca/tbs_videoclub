@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Persona
 
 # tarea ...
 def inicio(request):
@@ -13,4 +14,5 @@ def contacto(request):
     return render(request, "contacto.html")
 
 def personas(request):
-    return render(request, "personas.html")
+    personas = Persona.objects.all()
+    return render(request, "personas.html", {'personas': personas})

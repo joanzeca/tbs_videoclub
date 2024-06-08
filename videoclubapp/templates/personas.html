@@ -1,5 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Personas</h1>
+<h1>Lista de Personas</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Dirección</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Edad</th>
+            <th>Sueldo</th>
+            <th>RND</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for persona in personas %}
+        <tr>
+            <td>{{ persona.nombres }}</td>
+            <td>{{ persona.apellidos }}</td>
+            <td>{{ persona.direccion }}</td>
+            <td>{{ persona.fecha_de_nacimiento }}</td>
+            <td>{{ persona.edad }}</td>
+            <td>{{ persona.sueldo }}</td>
+            <td>{{ persona.rnd }}</td>
+            <td>{{ persona.estado }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
