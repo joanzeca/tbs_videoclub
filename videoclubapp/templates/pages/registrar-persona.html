@@ -1,0 +1,57 @@
+{% extends "base.html" %} {% block content %}
+<!-- MAIN -->
+
+<h1 class="text-3xl my-4">Formulario para registrar a una persona</h1>
+<form action="" class="mx-auto w-full max-w-lg bg-slate-300 p-4 rounded">
+  <div class="flex flex-col gap-1 sm:flex-row">
+    <div class="flex flex-col gap-1 items-start sm:flex-grow">
+      <label for="first-names">Ingresa tu nombre: </label>
+      <input type="text" id="first-names" class="w-full py-1 px-2 rounded" />
+    </div>
+    <div class="flex flex-col gap-1 items-start sm:flex-grow">
+      <label for="surnames">Ingresa tu apellidos: </label>
+      <input type="text" id="surnames" class="w-full py-1 px-2 rounded" />
+    </div>
+  </div>
+  <div class="flex flex-col gap-1 items-start mt-1">
+    <label for="address">Ingresa tu dirección: </label>
+    <input type="text" id="address" class="w-full py-1 px-2 rounded" />
+  </div>
+  <div class="flex flex-col gap-1 mt-1 sm:flex-row">
+    <div class="flex flex-col gap-1 items-start sm:flex-grow sm:basis-0">
+      <label for="date">F. de nacimiento: </label>
+      <input type="date" id="date" class="w-full py-1 px-2 rounded" />
+    </div>
+    <div class="flex flex-col gap-1 items-start sm:flex-grow sm:basis-0">
+      <label for="age">Ingresa tu edad: </label>
+      <input
+        type="number"
+        inputmode="numeric"
+        pattern="\d*"
+        id="age"
+        class="w-full py-1 px-2 rounded"
+      />
+    </div>
+    <div class="flex flex-col gap-1 items-start sm:flex-grow sm:basis-0">
+      <label for="salary">Ingresa tu sueldo: </label>
+      <input
+        type="number"
+        inputmode="numeric"
+        pattern="\d*"
+        id="salary"
+        class="w-full py-1 px-2 rounded"
+      />
+    </div>
+  </div>
+  <div class="flex justify-end">
+    <button
+      type="submit"
+      value="Enviar"
+      class="bg-green-500 py-1 px-6 rounded hover:bg-green-400 mt-3"
+    >
+      Guardar información
+    </button>
+  </div>
+</form>
+
+{% endblock %}
