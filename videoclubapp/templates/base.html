@@ -7,8 +7,69 @@
     {% tailwind_css %}
     <title>Empresa</title>
   </head>
-  <body>
-    <h1>Hola</h1>
+  <body class="bg-gray-100 flex flex-col min-h-screen">
+    <!-- HEADER -->
+    <div class="bg-white">
+      <header
+        class="w-full max-w-screen-xl mx-auto bg-white h-16 px-4 flex items-stretch"
+      >
+        <nav class="flex justify-between w-full">
+          <ul class="flex gap-4">
+            <li class="flex items-stretch">
+              <a
+                href="{%url 'inicio'%}"
+                class="flex items-center border-b-4 border-white hover:border-blue-500 hover:text-blue-400"
+                >Inicio</a
+              >
+            </li>
+            <li class="flex items-stretch">
+              <a
+                href="{%url 'personas'%}"
+                class="flex items-center border-b-4 border-white hover:border-blue-500 hover:text-blue-400"
+                >Ver personas</a
+              >
+            </li>
+            <li class="flex items-stretch">
+              <a
+                href="{%url 'registrar-persona'%}"
+                class="flex items-center border-b-4 border-white hover:border-blue-500 hover:text-blue-400"
+                >Registrar persona</a
+              >
+            </li>
+            <li class="flex items-stretch">
+              <a
+                href="{%url 'contacto'%}"
+                class="flex items-center border-b-4 border-white hover:border-blue-500 hover:text-blue-400"
+                >Contacto</a
+              >
+            </li>
+          </ul>
+          <ul class="flex">
+            <li class="flex items-stretch">
+              <a
+                href="http://localhost:8000/admin/"
+                class="flex items-center border-b-4 border-white hover:border-blue-500 hover:text-blue-400"
+                target="_blank"
+                >Admin</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+
+    <!-- MAIN -->
+    <main class="w-full px-4 max-w-screen-xl mx-auto flex-grow">
     {% block content %} {% endblock %}
+    </main>
+
+    <!-- FOOTER -->
+    <div class="bg-slate-500">
+      <footer
+        class="w-full max-w-screen-xl mx-auto bg-slate-500 text-white h-12 flex items-center justify-center"
+      >
+        @Footer.
+      </footer>
+    </div>
   </body>
 </html>
