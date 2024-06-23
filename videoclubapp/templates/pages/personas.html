@@ -1,31 +1,45 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Lista de Personas</h1>
-<table>
+
+{% load static %}
+
+<h1 class="text-3xl my-4">Lista de Personas</h1>
+<table class="border-collapse border border-slate-400 border-spacing-1">
     <thead>
         <tr>
-            <th>Nombres</th>
-            <th>Apellidos</th>
-            <th>Dirección</th>
-            <th>Fecha de Nacimiento</th>
-            <th>Edad</th>
-            <th>Sueldo</th>
-            <th>RND</th>
-            <th>Estado</th>
+            <th class="border border-slate-300 p-2">Nombres</th>
+            <th class="border border-slate-300 p-2">Apellidos</th>
+            <th class="border border-slate-300 p-2">Dirección</th>
+            <th class="border border-slate-300 p-2">Fecha de Nacimiento</th>
+            <th class="border border-slate-300 p-2">Edad</th>
+            <th class="border border-slate-300 p-2">Sueldo</th>
+            <th class="border border-slate-300 p-2">RND</th>
+            <th class="border border-slate-300 p-2">Estado</th>
+            <th class="border border-slate-300 p-2">Acción</th>
         </tr>
     </thead>
     <tbody>
         {% for persona in personas %}
         <tr>
-            <td>{{ persona.nombres }}</td>
-            <td>{{ persona.apellidos }}</td>
-            <td>{{ persona.direccion }}</td>
-            <td>{{ persona.fecha_de_nacimiento }}</td>
-            <td>{{ persona.edad }}</td>
-            <td>{{ persona.sueldo }}</td>
-            <td>{{ persona.rnd }}</td>
-            <td>{{ persona.estado }}</td>
+            <td class="border border-slate-300 p-2">{{ persona.nombres }}</td>
+            <td class="border border-slate-300 p-2">{{ persona.apellidos }}</td>
+            <td class="border border-slate-300 p-2">{{ persona.direccion }}</td>
+            <td class="border border-slate-300 p-2">{{ persona.fecha_de_nacimiento }}</td>
+            <td class="border border-slate-300 p-2">{{ persona.edad }}</td>
+            <td class="border border-slate-300 p-2">{{ persona.sueldo }}</td>
+            <td class="border border-slate-300 p-2">{{ persona.rnd }}</td>
+            <td class="border border-slate-300 p-2">{{ persona.estado }}</td>
+            <td class="border border-slate-300 p-2">
+                <div class="flex gap-1">
+                    <a href="{% url 'editar_persona' persona.id%}">
+                        <img src="{% static 'icons/edit.png' %}" alt="Editar persona" class="w-8">
+                    </a>
+                    <a href="{% url 'eliminar_persona' persona.id%}">
+                        <img src="{% static 'icons/delete.png' %}" alt="Eliminar persona" class="w-8">
+                    </a>
+                </div>
+            </td>
         </tr>
         {% endfor %}
     </tbody>

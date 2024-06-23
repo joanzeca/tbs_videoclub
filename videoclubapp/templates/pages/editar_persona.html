@@ -1,8 +1,8 @@
 {% extends "base.html" %} {% block content %}
 <!-- MAIN -->
 
-<h1 class="text-3xl my-4">Formulario para registrar a una persona</h1>
-<form action="{% url 'registrar_persona' %}" class="mx-auto w-full max-w-lg bg-slate-300 p-4 rounded" method="post">
+<h1 class="text-3xl my-4">Formulario para actualizar a una persona</h1>
+<form action="{% url 'editar_persona' persona.id%}" class="mx-auto w-full max-w-lg bg-slate-300 p-4 rounded" method="post">
   {% csrf_token %}
   {% if valor == "valido" %}
     <p class=" text-green-600 font-bold text-center rounded mb-1 py-1 bg-transparent border border-green-500">La persona ha sido agregada correctamente</p>
@@ -12,21 +12,21 @@
   <div class="flex flex-col gap-1 sm:flex-row">
     <div class="flex flex-col gap-1 items-start sm:flex-grow">
       <label for="firstnames">Ingresa tu nombre: </label>
-      <input type="text" name="firstnames" id="firstnames" class="w-full py-1 px-2 rounded" />
+      <input type="text" name="firstnames" id="firstnames" class="w-full py-1 px-2 rounded" value="{{persona.nombres}}"/>
     </div>
     <div class="flex flex-col gap-1 items-start sm:flex-grow">
       <label for="surnames">Ingresa tu apellidos: </label>
-      <input type="text" name="surnames" id="surnames" class="w-full py-1 px-2 rounded" />
+      <input type="text" name="surnames" id="surnames" class="w-full py-1 px-2 rounded" value="{{persona.apellidos}}"/>
     </div>
   </div>
   <div class="flex flex-col gap-1 items-start mt-1">
     <label for="address">Ingresa tu dirección: </label>
-    <input type="text" name="address" id="address" class="w-full py-1 px-2 rounded" />
+    <input type="text" name="address" id="address" class="w-full py-1 px-2 rounded" value="{{persona.direccion}}" />
   </div>
   <div class="flex flex-col gap-1 mt-1 sm:flex-row">
     <div class="flex flex-col gap-1 items-start sm:flex-grow sm:basis-0">
       <label for="date">F. de nacimiento: </label>
-      <input type="date" name="date" id="date" class="w-full py-1 px-2 rounded" />
+      <input type="date" name="date" id="date" class="w-full py-1 px-2 rounded" value="{{fecha_de_nacimiento_formateada}}"/>
     </div>
     <div class="flex flex-col gap-1 items-start sm:flex-grow sm:basis-0">
       <label for="age">Ingresa tu edad: </label>
@@ -39,6 +39,7 @@
         min="0"
         step="0"
         class="w-full py-1 px-2 rounded"
+        value="{{persona.edad}}"
       />
     </div>
     <div class="flex flex-col gap-1 items-start sm:flex-grow sm:basis-0">
@@ -50,12 +51,13 @@
         class="w-full py-1 px-2 rounded"
         min="0"
         step="0.01"
+        value="{{persona.sueldo}}"
       />
     </div>
   </div>
   <div class="mt-1">
     <label for="rnd">Ingresa el rnd: </label>
-    <input type="text" id="rnd" name="rnd" class="w-full py-1 px-2 rounded" />
+    <input type="text" id="rnd" name="rnd" class="w-full py-1 px-2 rounded" value="{{persona.rnd}}"/>
   </div>
 
   <div class="mt-1 flex gap-4">
@@ -78,7 +80,7 @@
       value="Enviar"
       class="bg-green-500 py-1 px-6 rounded hover:bg-green-400 mt-3"
     >
-      Guardar información
+      Actualizar información
     </button>
   </div>
 </form>
